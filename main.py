@@ -1,5 +1,4 @@
 import time
-
 import requests
 import random
 
@@ -40,10 +39,12 @@ def info(address, proxy):
         'http': f'http://{proxy}',
         'https': f'http://{proxy}',
     }
+    
     response = requests.get('https://api.scrollpump.xyz/api/Airdrop/GetReward', params=params, headers=headers, proxies=proxies)
+    
     count_token = 0
+    
     if response.status_code == 200:
-
         data = response.json()
         if data['data']['baseReward']:
             count_token += data['data']['baseReward']
@@ -55,11 +56,13 @@ def info(address, proxy):
 
 if __name__ == "__main__":
     total_token = 0
+    
     for index, address in enumerate(addresses):
+        
         address = address.strip()
         count_token = info(address.lower(), proxies[index])
-
         print(f'{address}:{count_token}')
+        
         total_token += count_token
         time.sleep(1)
 
