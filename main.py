@@ -1,14 +1,15 @@
 import time
+import time
 import requests
 import random
-
+import random
 with open('addresses.txt', 'r') as file:
     addresses = file.readlines()
 
 with open('proxies.txt', 'r') as file:
     proxies = file.readlines()
 
-
+fs
 def get_user_agent():
     random_version = f"{random.uniform(520, 540):.2f}"
     return (f'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/{random_version} (KHTML, like Gecko)'
